@@ -497,7 +497,7 @@ extension PackageModel.ProductType {
         case "library":
             let libraryType: ProductType.LibraryType
 
-            let libraryTypeString: String? = try json.get(Dictionary<String, Dictionary<String, String>>.self, forKey: "type").keys.first
+            let libraryTypeString: String? = json.get("type")
             switch libraryTypeString {
             case "static"?:
                 libraryType = .static
