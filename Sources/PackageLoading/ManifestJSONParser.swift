@@ -340,7 +340,7 @@ enum ManifestJSONParser {
             sources: sources,
             resources: try Self.parseResources(json),
             publicHeadersPath: json.get("publicHeadersPath"),
-            type: try .init(v4: json.get("type")),
+            type: try .init(v4: try json.get(Dictionary<String, Dictionary<String, String>>.self, forKey: "type").keys.first ?? "regular"),
             pkgConfig: json.get("pkgConfig"),
             providers: providers,
             pluginCapability: pluginCapability,
