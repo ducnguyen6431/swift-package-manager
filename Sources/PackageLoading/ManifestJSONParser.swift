@@ -484,7 +484,7 @@ extension SystemPackageProviderDescription {
 
 extension PackageModel.ProductType {
     fileprivate init(v4 json: JSON) throws {
-        let productType = try json.get(String.self, forKey: "product_type")
+        let productType = try json.get(String.self, forKey: "productType")
 
         switch productType {
         case "executable":
