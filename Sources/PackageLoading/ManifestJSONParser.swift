@@ -482,9 +482,13 @@ extension SystemPackageProviderDescription {
     }
 }
 
+extension Dictionary: JSONMappable where Key == String, Value: JSONMappable {
+    
+}
+
 extension PackageModel.ProductType {
     fileprivate init(v4 json: JSON) throws {
-        let productType = try json.get(String.self, forKey: "productType")
+        let productType = try json.get(Dictionary<String, Dictionary<String, Dictionary<String, Dictionary<String, String>>>>.self, forKey: "productType").keys.first
 
         switch productType {
         case "executable":
